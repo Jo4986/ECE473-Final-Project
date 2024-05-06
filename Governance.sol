@@ -85,6 +85,17 @@ contract Governance {
         }
     }
 
+    // Custom getter for proposals
+    function getProposal(uint256 proposalId) public view returns (uint256, address, string memory, uint256, address payable, uint256, uint256, uint256, uint256, bool) {
+        Proposal storage proposal = proposals[proposalId];
+        return (proposal.id, proposal.proposer, proposal.description, proposal.amount, proposal.recipient, proposal.startTime, proposal.endTime, proposal.totalVotesFor, proposal.totalVotesAgainst, proposal.executed);
+    }
+
+    // Custom getter for votes
+    function getVotes(uint256 proposalId, address voter) external view returns (uint256) {
+        return proposals[proposalId].votes[voter];
+    }
+
     function sqrt(uint y) internal pure returns (uint z) {
         if (y > 3) {
             z = y;
