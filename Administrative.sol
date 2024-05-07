@@ -1,4 +1,9 @@
 // SPDX-License-Identifier: MIT
+
+// This code provides a connection between a decentralized autonomous organization (DAO) and its token contract (`DAOToken.sol`). 
+//  It manages delegation of voting rights, setting timelocks for proposals, and proxying token locking, unlocking, and other token-related functionalities to the DAO 
+// token contract. Through this code only the DAO token contract can call certain functions via the `onlyDAO` modifier.
+
 pragma solidity ^0.8.0;
 
 import "./DAOToken.sol";
